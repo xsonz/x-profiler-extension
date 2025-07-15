@@ -4,7 +4,7 @@ A Chrome extension to collect posts from an X (formerly Twitter) user profile an
 
 ## How to Use
 
-1.  **Start the Backend**: Navigate to the `x-profiler-backend` directory and run `npm run dev` to start the local API server.
+1.  **Start the Backend**: Navigate to the `x-profiler-backend` directory and run `npm run dev` to start the local API server. NOTE: Backend is already running on `x-profiler-ten.vercel.app` . No need to run it locally.
 2.  **Load the Extension**: Open Chrome, go to `chrome://extensions`, enable "Developer mode", and click "Load unpacked". Select the `x-profiler-extension` folder. **Reload the extension after making code changes.**
 3.  **Navigate to X**: Go to any user's profile page on `x.com`.
 4.  **Start Collecting**: Click the extension icon in the toolbar and press the "Start Collecting" button.
