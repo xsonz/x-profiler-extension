@@ -145,4 +145,22 @@ document.addEventListener('DOMContentLoaded', () => {
       profileSettingsEl.style.display = 'none';
     }
   }
+
+  // Donation wallet copy logic
+  document.querySelectorAll('.wallet').forEach(walletEl => {
+    walletEl.addEventListener('click', () => {
+        const address = walletEl.dataset.address;
+        if (address) {
+            navigator.clipboard.writeText(address).then(() => {
+                const originalContent = walletEl.innerHTML;
+                walletEl.innerHTML = '<span class="copied-text">Copied!</span>';
+                walletEl.classList.add('copied');
+                setTimeout(() => {
+                  walletEl.innerHTML = originalContent;
+                  walletEl.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    });
+  });
 });

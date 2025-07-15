@@ -78,3 +78,58 @@ button {
 .hidden {
   display: none !important;
 }
+.donate-section {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #dadde1;
+}
+
+.donate-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #606770;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.donate-wallets {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wallet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  background-color: #e7f3ff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, justify-content 0.2s ease;
+}
+
+.wallet:hover {
+  background-color: #dceaf8;
+}
+.wallet.copied {
+  background-color: #d1f0d1;
+  justify-content: center;
+}
+
+.wallet span {
+  font-weight: 500;
+  color: #1d2129;
+  margin-right: 4px;
+}
+
+.wallet-address {
+  font-family: monospace;
+  color: #333;
+}
+
+.copied-text {
+  color: #1b871b;
+  font-weight: bold;
+}
