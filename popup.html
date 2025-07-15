@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>X Profile Analyzer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>X Profile Analyzer</h1>
+    <p id="status">Ready to collect.</p>
+    <div class="analysis-type">
+      <label><input type="radio" name="analysisType" value="profile" checked> Profile Analysis</label>
+      <label><input type="radio" name="analysisType" value="comments"> Comment Analysis</label>
+    </div>
+    <div id="settings" class="settings">
+      <div id="profile-settings">
+        <label for="postLimit">Collect up to:</label>
+        <div class="input-group">
+          <input type="number" id="postLimit" value="200" min="10" step="10">
+          <span>posts</span>
+        </div>
+      </div>
+      <div class="input-group checkbox-group">
+        <input type="checkbox" id="autoScroll" checked>
+        <label for="autoScroll">Enable Auto-scrolling</label>
+      </div>
+
+      <label for="apiKey">OpenRouter API Key:</label>
+      <div class="input-group">
+        <input type="password" id="apiKey" placeholder="Required to run analysis">
+      </div>
+
+      <label for="modelName">AI Model (from OpenRouter):</label>
+      <div class="input-group">
+        <input type="text" id="modelName" value="mistralai/mistral-7b-instruct:free">
+      </div>
+    </div>
+    <button id="controlBtn">Start Collecting</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
