@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "X Profile Analyzer",
+  "name": "X Profiler",
   "version": "1.0",
   "description": "Gathers X posts and generates a psychological profile.",
   "background": {
