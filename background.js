@@ -92,8 +92,7 @@ async function triggerAnalysis() {
           const { reportUrl } = await apiResponse.json();
 
           if (reportUrl) {
-            const url = new URL(reportUrl);
-            const productionUrl = `https://x-profiler-ten.vercel.app${url.pathname}${url.search}`;
+            const productionUrl = `https://x-profiler-ten.vercel.app${reportUrl}`;
             chrome.tabs.create({ url: productionUrl });
           } else {
             throw new Error('API did not return a reportUrl.');
