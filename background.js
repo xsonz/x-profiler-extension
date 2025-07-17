@@ -1,5 +1,27 @@
 const PROFILE_API_URL = 'https://x-profiler-ten.vercel.app/api/analyze';
 const SENTIMENT_API_URL = 'https://x-profiler-ten.vercel.app/api/analyze-sentiment';
+const INSTALL_TRACKING_URL = 'https://x-profiler-ten.vercel.app/api/track-install';
+
+// This listener fires when the extension is first installed.
+chrome.runtime.onInstalled.addListener(async (details) => {
+  // We only want to run this on the initial installation.
+  if (details.reason === 'install') {
+    try {
+      // Check if we've already reported an installation to avoid duplicates.
+      const { installReported } = await chrome.storage.local.get('installReported');
+
+      if (!installReported) {
+        await fetch(INSTALL_TRACKING_URL, {
+          method: 'POST',
+        });
+        // Set a flag to prevent sending this ping ever again.
+        await chrome.storage.local.set({ installReported: true });
+      }
+    } catch (error) {
+      console.error('Failed to report extension install:', error);
+    }
+  }
+});
 
 // Listen for messages from other parts of the extension
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
