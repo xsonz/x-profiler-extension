@@ -86,9 +86,11 @@ async function triggerAnalysis() {
             return;
           }
 
+          // Add the current tab's URL to the payload
           const payload = {
             ...payloadData,
-            model: modelName || 'mistralai/mistral-7b-instruct:free', // Add model to payload
+            model: modelName || 'mistralai/mistral-7b-instruct:free',
+            sourceUrl: tab.url, // <--- Add this line
           };
 
           console.log(
