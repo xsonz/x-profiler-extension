@@ -315,10 +315,8 @@ if (window.vibeCodeScriptInjected) {
         observer.disconnect();
         observer = null;
       }
-      if (statusWidget) {
-        statusWidget.remove();
-        statusWidget = null;
-      }
+      // statusWidget.remove(); // <-- Remove this line
+      // statusWidget = null;   // <-- Remove this line
 
       const profileUserNameElement = document.querySelector('[data-testid="UserName"]');
       const profileUserName = profileUserNameElement ? profileUserNameElement.textContent.trim() : 'Unknown User';
@@ -337,6 +335,17 @@ if (window.vibeCodeScriptInjected) {
           data: { type: 'profile', posts: collectedPosts, userName: profileUserName },
         });
       }
+
+      // When scraping is finished and analysis starts, instead of removing the widget:
+      function showAnalyzingState() {
+        const widget = document.getElementById('xprofiler-widget');
+        if (widget) {
+          widget.querySelector('.xprofiler-status').textContent = 'Analyzing...';
+          // Optionally, disable buttons or show a spinner here
+        }
+      }
+
+      showAnalyzingState(); // <-- call this instead of removing the widget
     }
     return true; // Indicates that the response is sent asynchronously
   });
