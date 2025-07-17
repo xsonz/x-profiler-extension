@@ -62,7 +62,7 @@ if (window.vibeCodeScriptInjected) {
         color = '#3182ce'; // Blue
         break;
       case 'finished':
-        text = `🏁 Finished (${count} items | ~${approxTokens} tokens)`;
+        text = `🏁 Now Analyzing... (${count} items | ~${approxTokens} tokens)`;
         color = '#2f855a'; // Green
         break;
       case 'idle':
